@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: black;
+    background-color: #333333; 
+}
+
+header {
+    background-color: #000000;
+    color: white; 
+    /* padding: 20px; */
+    text-align: left;
+}
+
+.full-screen-image {
+    /* position: fixed;  */
+    top: 0; 
+    left: 0; 
+    width: 1000px; 
+    height: 900px; 
+    object-fit: cover; 
+    z-index: -1; 
+  }
+
+h1 {
+    margin: 5px;
+    font-size: 2.5em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.hero {
+    text-align: end;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+     
+h2 {
+    font-size: 50px;
+    margin: 10px 0;
+    ;
+   
+}
+
+p {
+    font: size 50px;
+    margin: 0;
+   
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-section img {
+    max-width: 100%;
+    width: 200px;
+    height:100px;
+    border-radius: 10px;
+}
+
+.text-section {
+    max-width: 600px;
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+p {
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.6;
+}
+.container {
+    background-color: #121212;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vision-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.vision, .values {
+    width: 45%;
+}
+
+.vision h2, .values h2 {
+    color: #1E88E5;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.values li {
+    margin-bottom: 15px;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.team-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 2.5%;
+    border-radius: 8px;
+}
+
+.devices-container {
+    padding: 10px;
+    width: 100%;
+    div {
+        background-color: black;
+        text-align: center;
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+h2 {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 15px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
