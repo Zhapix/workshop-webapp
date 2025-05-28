@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Library Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form, .filter-box {
+      margin-bottom: 2rem;
+    }
+
+    input, button {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+  <div class="container">
+    <h1>Library Management System</h1>
+
+    <form id="addBookForm">
+      <h3>Add New Book</h3>
+      <input type="text" id="title" placeholder="Book Title" required />
+      <input type="text" id="author" placeholder="Author" required />
+      <input type="number" id="year" placeholder="Publication Year" required />
+      <button type="submit">Add Book</button>
+    </form>
+
+    <div class="filter-box">
+      <input type="text" id="filterInput" placeholder="Filter by title or author..." />
+    </div>
+
+    <h3>Book List</h3>
+    <table id="bookTable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Book rows will be added here dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('addBookForm');
+    const tableBody = document.querySelector('#bookTable tbody');
+    const filterInput = document.getElementById('filterInput');
+
+    const books = [];
+
+    function renderTable(data) {
+      tableBody.innerHTML = '';
+      data.forEach(book => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${book.title}</td>
+          <td>${book.author}</td>
+          <td>${book.year}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const author = document.getElementById('author').value.trim();
+      const year = document.getElementById('year').value;
+
+      books.push({ title, author, year });
+      renderTable(books);
+      form.reset();
+    });
+
+    filterInput.addEventListener('input', function () {
+      const searchTerm = filterInput.value.toLowerCase();
+      const filteredBooks = books.filter(book =>
+        book.title.toLowerCase().includes(searchTerm) ||
+        book.author.toLowerCase().includes(searchTerm)
+      );
+      renderTable(filteredBooks);
+    });
+  </script>
+</body>
+</html>

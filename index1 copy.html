@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color:blue;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .edit, .delete {
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .edit {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+        }
+
+        .delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+        <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+   
+
+    <script>
+        const studentForm = document.getElementById('studentForm');
+        const studentTableBody = document.getElementById('studentTable').querySelector('tbody');
+
+        let students = [
+            { id: 1, name: "John Doe", age: 20, email: "john@example.com", city: "New York" },
+            { id: 2, name: "Jane Smith", age: 22, email: "jane@example.com", city: "Los Angeles" },
+            { id: 3, name: "Alice Johnson", age: 19, email: "alice@example.com", city: "Chicago" }
+        ];
+
+        studentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('studentName').value;
+            const age = document.getElementById('studentAge').value;
+            const email = document.getElementById('studentEmail').value;
+            const city = document.getElementById('studentCity').value;
+
+            const student = { id: Date.now(), name, age, email, city };
+            students.push(student);
+
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentAge').value = '';
+            document.getElementById('studentEmail').value = '';
+            document.getElementById('studentCity').value = '';
+
+            renderStudents();
+        });
+
+        function renderStudents() {
+            studentTableBody.innerHTML = '';
+
+            students.forEach(student => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.age}</td>
+                    <td>${student.email}</td>
+                    <td>${student.city}</td>
+                    <td>
+                        <button class="edit" onclick="editStudent(${student.id})">Edit</button>
+                        <button class="delete" onclick="deleteStudent(${student.id})">Delete</button>
+                    </td>
+                `;
+
+                studentTableBody.appendChild(row);
+            });
+        }
+
+        function editStudent(id) {
+            const student = students.find(s => s.id === id);
+            if (student) {
+                document.getElementById('studentName').value = student.name;
+                document.getElementById('studentAge').value = student.age;
+                document.getElementById('studentEmail').value = student.email;
+                document.getElementById('studentCity').value = student.city;
+
+                deleteStudent(id);
+            }
+        }
+
+        function deleteStudent(id) {
+            students = students.filter(student => student.id !== id);
+            renderStudents();
+        }
+
+        // Initial render
+        renderStudents();
+    </script>
+</body>
+</html>

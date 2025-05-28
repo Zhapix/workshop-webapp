@@ -1,0 +1,97 @@
+.form-container {
+  background: white;
+  padding: 20px 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.required {
+  color: red;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.phone-input .flag {
+  font-size: 20px;
+}
+
+.phone-input .country-code {
+  padding: 8px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+.email-input {
+  position: relative;
+}
+
+.email-input input {
+  width: 100%;
+}
+
+.email-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: gray;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit {
+  background-color: #28a745;
+  color: white;
+}
+
+.reset {
+  background-color: #e2e6ea;
+  color: #000;
+}

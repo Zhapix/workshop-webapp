@@ -1,0 +1,19 @@
+
+/*.edit, .delete {
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .edit {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+        }
+
+        .delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        } */
