@@ -72,6 +72,36 @@ function findMax() {
     document . getElementById('reverseResult').textContent = `Reverse String: ${reversed}` ;
   }
 
+  function mergeAndSortUnique(arr1, arr2) {
+    // Step 1: Combine both arrays into one
+    var combined = arr1.concat(arr2);
+
+    // Step 2: Initialize an empty array to store unique values
+    var uniqueArray = [];
+
+    // Step 3: Loop through the combined array
+    for (var i = 0; i < combined.length; i++) {
+        var current = combined[i];
+        if (uniqueArray.indexOf(current) === -1) {
+            uniqueArray.push(current);
+        }
+    }
+
+    // Step 4: Sort the array in ascending order
+    uniqueArray.sort(function(a, b) {
+        return a - b;
+    });
+
+    // Step 5: Return the final sorted array with unique values
+    return uniqueArray;
+}
+
+// Example usage:
+var arr1 = [2, 3, 5];
+var arr2 = [2, 4, 1, 5, 6, 4];
+console.log(mergeAndSortUnique(arr1, arr2)); // Output: [1, 2, 3, 4, 5, 6]
+
+
   // When the page is fully loaded, attach click event listeners to buttons
   document.addEventListener("DOMContentLoaded", function () {   
     document.getElementById("evenBtn").addEventListener("click", checkSum);   // When 'evenBtn' is clicked, call the checkSum function
@@ -79,4 +109,5 @@ function findMax() {
     document.getElementById("swapBtn").addEventListener("click", swapNumbers); // when 'swapBtn' is clicked, call the swapNumbers function
     document.getElementById("countBtn").addEventListener("click", countVowels); // when 'countBtn' is clicked, call the countVowels function
     document.getElementById("reverBtn").addEventListener("click", Reverse); // when 'reverBtn' is clicked , call the Reverse function function
+    
       });
